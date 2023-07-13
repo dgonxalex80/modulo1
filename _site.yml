@@ -1,0 +1,12 @@
+name: "PyE"
+navbar:
+  title: " "
+  left:
+    - text: "Módulo 1"
+      href: index.html
+    - text: "recurso 1.1"
+      href: recurso101.html
+    - text: "recurso 1.2"
+      href: recurso102.html
+    - text: "recurso 1.3"
+      href: recurso103.html      
