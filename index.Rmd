@@ -1,5 +1,5 @@
 ---
-title: "Módulo 1"
+title: "MÓDULO 1"
 subtitle: "dgonzalez"
 ---
 
