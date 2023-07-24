@@ -3,4 +3,72 @@ title: "**MÓDULO 1**"
 subtitle: "dgonzalez"
 ---
 
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+
+library(RColorBrewer)
+library(summarytools)
+library(knitr)
+library(readxl)
+library(tidyverse)
+# Colombia<- readRDS("data/Colombia.RDS")
+#install.packages('remotes')  # solo una vez
+library(remotes) # solo una vez
+# install_github("dgonxalex80/paqueteDEG", force = TRUE) # solo una vez
+library(paqueteDEG)
+library(readxl)
+# pye20222 <- read_excel("data/pye20222.xlsx", sheet = "Sheet4", col_types = c("text", "numeric", "text", "numeric", "text", "numeric", "numeric","numeric", "numeric"))
+
+# colores
+c0= "#b0394a"
+c1= "#ad6395"
+c2= "#a391c4"
+c3= "#8acfe6"
+c4= "#646420"
+c5= "#db524f"
+
+paleta <- c("#FF7F00", "#4DAF4A", "#984EA3", "#377EB8", "#E41A1C", "#FFFF33")
+
+library(RColorBrewer)
+pal6 <- brewer.pal(6, "Set2")
+pal2 <- brewer.pal(2, "Set2")
+
+```
+
 ![](img/banner1.png)
+
+<br/><br/>
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+library(readr)
+PyE20232 <- read_delim("~/Documentos/Javeriana/PyE/2023-2/Probabilidad 2023-2.csv",delim = ";", escape_double = FALSE, trim_ws = TRUE)
+```
+
+```{r, echo=FALSE}
+library(tidyverse)
+tabla <- table(PyE20232$carrera, PyE20232$grupo); tabla
+```
+
+```{r, echo=FALSE, fig.align='center'}
+
+library(ggplot2)
+# Crear el gráfico de barras con ggplot2
+barplot(tabla, main="Carrera por grupo 2023-2",  xlab="Carrera ",col= pal6,
+  legend = rownames(tabla))
+
+
+```
+
+<br/><br/>
+
+
+```{r, echo=FALSE, fig.align='center'}
+boxplot(PyE20232$promedio ~ PyE20232$grupo , col= pal2,
+        main ="Promedio académico por grupo - 2023-2",
+        ylab = "promedio académico",
+        xlab = "grupos")
+grid()
+```
+
